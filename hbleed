@@ -1,0 +1,34 @@
+#!/bin/sh
+
+clear
+
+echo "\033[1;94m"
+echo " 8   8                        8eeee8  "
+echo " 8   8 eeee eeeee eeeee eeeee 8    8   e     eeee eeee eeeee "
+echo " 8eee8 8    8   8 8   8   8   8eeee8ee 8     8    8    8   8 "
+echo " 88  8 8eee 8eee8 8eee8e  8e  88     8 8e    8eee 8eee 8e  8 "
+echo " 88  8 88   88  8 88   8  88  88     8 88    88   88   88  8  "
+echo " 88  8 88ee 88  8 88   8  88  88eeeee8 88eee 88ee 88ee 88ee8 "
+echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
+echo "\033[1;93m"
+echo "  ----------------------Information-----------------------"
+echo ""
+echo " >> Author  =  Technical Mujeeb"
+echo ""
+echo " >> Github  =  https://github.com/TechnicalMujeeb/HeartBleed.git"
+echo ""
+echo " >> Heart Bleed = openssl 443 port vulnerability scanning Tool"
+echo ""
+echo "  ---------------------------------------------------------"
+echo -n "\033[1;92m [-] Target Ip : "
+
+read a
+if [ ! -z $a ]
+then
+echo "[*] Looading... "
+echo ""
+nmap -d --script=ssl-heartbleed --script-args=vulns.showall -sV $a 
+else
+echo "\033[31m[!] please Enter target Ip ! "
+fi
